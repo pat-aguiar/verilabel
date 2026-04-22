@@ -1,4 +1,3 @@
-
 # ADR 002: Schema Design
 
 **Status:** Accepted
