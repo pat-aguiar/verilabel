@@ -4,10 +4,10 @@ from app.core.database import init_db
 
 app = FastAPI(title="VeriLabel API", version="0.1.0")
 
-# Enable CORS for our React frontend
+# Enable CORS for React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # Tighten this for production
+    allow_origins=["*"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
