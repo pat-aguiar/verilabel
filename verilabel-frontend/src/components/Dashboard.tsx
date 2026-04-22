@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Upload, CheckCircle, XCircle, Beaker, FileText } from 'lucide-react';
 import { uploadReport } from '../services/api';
+import BadgePreview from './BadgePreview';
 
 export default function Dashboard() {
     const [file, setFile] = useState<File | null>(null);
@@ -103,6 +104,7 @@ export default function Dashboard() {
                                     ))}
                                 </tbody>
                             </table>
+                            <BadgePreview result={result} brandName={brandName} />
                         </div>
                     ) : (
                         <div className="h-64 flex flex-col items-center justify-center text-slate-400">
