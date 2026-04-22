@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.database import init_db
+from app.api.endpoints import reports
 
 app = FastAPI(title="VeriLabel API", version="0.1.0")
 
@@ -20,3 +21,5 @@ def on_startup():
 @app.get("/health")
 def health_check():
     return {"status": "active", "service": "VeriLabel"}
+
+app.include_router(reports.router, prefix="/api/v1", tags=["Reports"])
