@@ -1,0 +1,7 @@
+fastapi==0.115.11
+uvicorn==0.33.0
+sqlmodel==0.0.29
+PyMuPDF==1.24.11
+openai==1.60.2
+httpx==0.28.1
+python-multipart==0.0.20

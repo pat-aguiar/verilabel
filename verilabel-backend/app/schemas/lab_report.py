@@ -5,11 +5,9 @@ class LabReportCreate(BaseModel):
     brand_name: str
 
 class LabReportResponse(BaseModel):
-    id: int
-    filename: str
+    report_id: int
     status: str
-    extracted_data: Dict
-    compliance_summary: Optional[str] = None
+    data: Dict
 
     class Config:
         from_attributes = True

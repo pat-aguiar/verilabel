@@ -6,9 +6,11 @@ from app.services.extraction import ExtractionService
 from app.services.compliance import ComplianceEngine
 import uuid
 
+from app.schemas.lab_report import LabReportResponse
+
 router = APIRouter()
 
-@router.post("/upload")
+@router.post("/upload", response_model=LabReportResponse)
 async def upload_lab_report(
     brand_name: str,
     file: UploadFile = File(...),
@@ -40,8 +42,8 @@ async def upload_lab_report(
     # 4. Run Compliance Engine
     processed_report = ComplianceEngine.check_compliance(new_report, db)
 
-    return {
-        "report_id": processed_report.id,
-        "status": processed_report.status,
-        "data": processed_report.extracted_data
-    }
+    return LabReportResponse(
+        report_id=processed_report.id,
+        status=processed_report.status,
+        data=processed_report.extracted_data
+    )
