@@ -9,6 +9,6 @@ class Settings:
         _db_url = _db_url.replace("postgres://", "postgresql://", 1)
         
     DATABASE_URL: str = _db_url
-    FRONTEND_URL: str = os.getenv("FRONTEND_URL", "http://localhost:5173")
+    FRONTEND_URL: str = os.getenv("FRONTEND_URL", "https://verilabel-frontend.onrender.com")
 
 settings = Settings()
